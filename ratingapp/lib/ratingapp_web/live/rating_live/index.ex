@@ -2,11 +2,13 @@ defmodule RatingappWeb.RatingLive.Index do
   use Phoenix.Component
   use Phoenix.HTML
 
+
+
   def games(assigns) do
     ~H"""
     <div class="survey-component-container" >
       <.heading games={@games} />
-      <.list games={@games}  />
+      <.list games={@games} current_user={@current_user} />
     </div>
     """
   end
@@ -23,7 +25,7 @@ defmodule RatingappWeb.RatingLive.Index do
 
   def list(assigns) do
     ~H"""
-
+    <%= # inspect @games %>
     <%= for {game, index} <- Enum.with_index(@games) do %>
       <%= if rating = List.first(game.ratings) do %>
         <RatingappWeb.RatingLive.Show.stars rating={rating} game={game} />
@@ -32,14 +34,13 @@ defmodule RatingappWeb.RatingLive.Index do
                         id={"rating-form-#{game.id}"}
                         game={game}
                         game_index={index}
-                         />
+                        current_user={@current_user} />
       <% end %>
     <% end %>
     """
   end
 
   defp ratings_complete?(games) do
-    IO.inspect(games, lable: "games------------")
     Enum.all?(games, fn game ->
       length(game.ratings) == 1
     end)

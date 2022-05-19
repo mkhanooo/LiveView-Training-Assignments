@@ -7,9 +7,6 @@ defmodule Ratingapp.Survey do
   alias Ratingapp.Repo
 
   alias Ratingapp.Survey.Rating
-  alias Ratingapp.Repo
-
-
 
   @doc """
   Returns the list of ratings.
@@ -52,15 +49,12 @@ defmodule Ratingapp.Survey do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_rating(
-    %{"game_id" => game_id, "rating" => rating, "user_id" => user_id} = rating_params
-  ) do
-IO.inspect(rating_params, label: "rating_params from create_rating/1 in LiveviewsApp.Survey")
+  def create_rating(attrs \\ %{}) do
+    %Rating{}
+    |> Rating.changeset(attrs)
+    |> Repo.insert()
+  end
 
-%Rating{}
-|> Rating.changeset(%{game_id: game_id, rating: rating, user_id: user_id})
-|> Repo.insert()
-end
   @doc """
   Updates a rating.
 

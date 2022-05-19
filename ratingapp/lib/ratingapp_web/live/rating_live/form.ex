@@ -22,8 +22,8 @@ defmodule RatingappWeb.RatingLive.Form do
   end
 
   def assign_rating(
-    %{assigns: %{game: game}} = socket) do
-    assign(socket, :rating, %Rating{game_id: game.id})
+    %{assigns: %{current_user: user, game: game}} = socket) do
+    assign(socket, :rating, %Rating{user_id: user.id, game_id: game.id})
   end
 
   def assign_changeset(%{assigns: %{rating: rating}} = socket) do

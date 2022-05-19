@@ -1,11 +1,17 @@
 defmodule RatingappWeb.SurveyLive do
   use RatingappWeb, :live_view
 
+  alias Ratingapp.Accounts
+  alias Ratingapp.Catalog
 
-  def mount(_params, _session, socket) do
+  def mount(_params, %{"user_token" => user_token}, socket) do
+    current_user = Accounts.get_user_by_session_token(user_token)
+
     {:ok,
      socket
-     |> assign(:games, Ratingapp.Catalog.list_games_with_user_rating())}
+     |> assign(:current_user, current_user)
+     |> assign(:games, Catalog.list_games_with_user_rating(current_user))
+     |> assign(:counter, 0)}
   end
 
   def handle_info({:created_rating, updated_product, product_index}, socket) do

@@ -5,14 +5,11 @@ defmodule Ratingapp.Catalog do
 
   import Ecto.Query, warn: false
   alias Ratingapp.Repo
-
   alias Ratingapp.Catalog.Game
   alias Ratingapp.Survey.Rating
 
-  def list_games_with_user_rating() do
-    query = from(r
-    
-    in Rating)
+  def list_games_with_user_rating(user) do
+    query = from(r in Rating, where: r.user_id == ^user.id)
 
     Game
     |> Repo.all()

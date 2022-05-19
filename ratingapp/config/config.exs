@@ -15,7 +15,7 @@ config :ratingapp, RatingappWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: RatingappWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Ratingapp.PubSub,
-  live_view: [signing_salt: "i9C7i/D5"]
+  live_view: [signing_salt: "FJ6PDVXh"]
 
 # Configures the mailer
 #

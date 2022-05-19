@@ -20,7 +20,7 @@ config :ratingapp, Ratingapp.Repo,
 # you can enable the server option below.
 config :ratingapp, RatingappWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "AZYsb4pu4CmBbsyYNpv2BqSCxnkYVFkoDc4yea2URSFE4jt9IOv4wIjjVNh9RLmm",
+  secret_key_base: "fKA6YFA1yW/SfZMQRDaj9Kkv3S/wcOXTN1Hp7sMLfsLcld4Wvb43QGRYlinsnsSR",
   server: false
 
 # In test we don't send emails.

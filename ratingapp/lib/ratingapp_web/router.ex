@@ -18,7 +18,7 @@ defmodule RatingappWeb.Router do
   end
 
   scope "/", RatingappWeb do
-    pipe_through :browser
+    pipe_through [:browser, :require_authenticated_user]
 
     live "/survey", SurveyLive
     live "/game", GameLive

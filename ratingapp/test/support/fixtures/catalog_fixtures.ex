@@ -5,18 +5,13 @@ defmodule Ratingapp.CatalogFixtures do
   """
 
   @doc """
-  Generate a unique game game_name.
-  """
-  def unique_game_game_name, do: "some game_name#{System.unique_integer([:positive])}"
-
-  @doc """
   Generate a game.
   """
   def game_fixture(attrs \\ %{}) do
     {:ok, game} =
       attrs
       |> Enum.into(%{
-        game_name: unique_game_game_name()
+         game_name: "some  game_name"
       })
       |> Ratingapp.Catalog.create_game()
 

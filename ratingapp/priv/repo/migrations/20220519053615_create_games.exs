@@ -7,7 +7,5 @@ defmodule Ratingapp.Repo.Migrations.CreateGames do
 
       timestamps()
     end
-
-    create unique_index(:games, [:game_name])
   end
 end

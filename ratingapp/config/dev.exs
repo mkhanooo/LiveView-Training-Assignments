@@ -23,7 +23,7 @@ config :ratingapp, RatingappWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "yfJ36zlhP7CLKvpYDP75yWnqPozJT0ai3L+mP3TlU+fg5QWCxj6HnkQt/jYkx382",
+  secret_key_base: "glqlr9hcPITwuKRVXXmCWzTSbEzA1nw6MBHufsu+81kLF/8DPkrXdly/jigqBNZC",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}

@@ -3,7 +3,8 @@ defmodule RatingappWeb.RatingLive.Show do
   use Phoenix.HTML
 
   def stars(assigns) do
-    IO.inspect assigns, label: "assigns from RatingLive.Show.star"
+    IO.inspect(assigns, label: "assigns from RatingLive.Show.star")
+
     stars =
       filled_stars(assigns.rating.rating)
       |> Enum.concat(unfilled_stars(assigns.rating.rating))

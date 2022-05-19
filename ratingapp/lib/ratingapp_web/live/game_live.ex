@@ -1,12 +1,10 @@
 defmodule RatingappWeb.GameLive do
   use RatingappWeb, :live_view
 
-  def mount(_params, _session, socket) do
-
+  def mount(_params, %{"user_token" => _user_token}, socket) do
     {:ok,
-    socket
-    |> assign(:games, Ratingapp.Catalog.list_games())
-   }
+     socket
+     |> assign(:games, Ratingapp.Catalog.list_games())}
   end
 
   def handle_event("Add", %{"game" => name}, socket) do

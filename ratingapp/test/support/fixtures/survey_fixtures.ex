@@ -11,6 +11,7 @@ defmodule Ratingapp.SurveyFixtures do
     {:ok, rating} =
       attrs
       |> Enum.into(%{
+         : "some  ",
         rating: 42
       })
       |> Ratingapp.Survey.create_rating()

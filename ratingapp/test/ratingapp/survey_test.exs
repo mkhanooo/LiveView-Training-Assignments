@@ -8,7 +8,7 @@ defmodule Ratingapp.SurveyTest do
 
     import Ratingapp.SurveyFixtures
 
-    @invalid_attrs %{rating: nil}
+    @invalid_attrs %{" ": nil, rating: nil}
 
     test "list_ratings/0 returns all ratings" do
       rating = rating_fixture()
@@ -21,9 +21,10 @@ defmodule Ratingapp.SurveyTest do
     end
 
     test "create_rating/1 with valid data creates a rating" do
-      valid_attrs = %{rating: 42}
+      valid_attrs = %{" ": "some  ", rating: 42}
 
       assert {:ok, %Rating{} = rating} = Survey.create_rating(valid_attrs)
+      assert rating.  == "some  "
       assert rating.rating == 42
     end
 
@@ -33,9 +34,10 @@ defmodule Ratingapp.SurveyTest do
 
     test "update_rating/2 with valid data updates the rating" do
       rating = rating_fixture()
-      update_attrs = %{rating: 43}
+      update_attrs = %{" ": "some updated  ", rating: 43}
 
       assert {:ok, %Rating{} = rating} = Survey.update_rating(rating, update_attrs)
+      assert rating.  == "some updated  "
       assert rating.rating == 43
     end
 

@@ -7,7 +7,7 @@ defmodule RatingappWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_ratingapp_key",
-    signing_salt: "3rZH32w6"
+    signing_salt: "kA10LuGu"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]

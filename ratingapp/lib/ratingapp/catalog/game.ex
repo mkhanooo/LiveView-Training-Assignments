@@ -5,7 +5,7 @@ defmodule Ratingapp.Catalog.Game do
   schema "games" do
     field :game_name, :string
     has_many :ratings, Ratingapp.Survey.Rating
-    
+
     timestamps()
   end
 
@@ -14,6 +14,5 @@ defmodule Ratingapp.Catalog.Game do
     game
     |> cast(attrs, [:game_name])
     |> validate_required([:game_name])
-    |> unique_constraint(:game_name)
   end
 end

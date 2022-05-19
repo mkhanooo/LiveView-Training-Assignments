@@ -8,7 +8,7 @@ defmodule Ratingapp.CatalogTest do
 
     import Ratingapp.CatalogFixtures
 
-    @invalid_attrs %{game_name: nil}
+    @invalid_attrs %{" game_name": nil}
 
     test "list_games/0 returns all games" do
       game = game_fixture()
@@ -21,10 +21,10 @@ defmodule Ratingapp.CatalogTest do
     end
 
     test "create_game/1 with valid data creates a game" do
-      valid_attrs = %{game_name: "some game_name"}
+      valid_attrs = %{" game_name": "some  game_name"}
 
       assert {:ok, %Game{} = game} = Catalog.create_game(valid_attrs)
-      assert game.game_name == "some game_name"
+      assert game. game_name == "some  game_name"
     end
 
     test "create_game/1 with invalid data returns error changeset" do
@@ -33,10 +33,10 @@ defmodule Ratingapp.CatalogTest do
 
     test "update_game/2 with valid data updates the game" do
       game = game_fixture()
-      update_attrs = %{game_name: "some updated game_name"}
+      update_attrs = %{" game_name": "some updated  game_name"}
 
       assert {:ok, %Game{} = game} = Catalog.update_game(game, update_attrs)
-      assert game.game_name == "some updated game_name"
+      assert game. game_name == "some updated  game_name"
     end
 
     test "update_game/2 with invalid data returns error changeset" do
