@@ -5,7 +5,7 @@ defmodule RatingappWeb.SurveyLive do
   def mount(_params, _session, socket) do
     {:ok,
      socket
-     |> assign(:games, Ratingapp.Catalog.list_games())}
+     |> assign(:games, Ratingapp.Catalog.list_games_with_user_rating())}
   end
 
   def handle_info({:created_rating, updated_product, product_index}, socket) do

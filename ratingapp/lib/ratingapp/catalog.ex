@@ -9,8 +9,10 @@ defmodule Ratingapp.Catalog do
   alias Ratingapp.Catalog.Game
   alias Ratingapp.Survey.Rating
 
-  def list_games_with_user_rating(user) do
-    query = from(r in Rating, where: r.user_id == ^user.id)
+  def list_games_with_user_rating() do
+    query = from(r
+    
+    in Rating)
 
     Game
     |> Repo.all()

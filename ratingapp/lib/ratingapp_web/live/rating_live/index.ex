@@ -23,7 +23,7 @@ defmodule RatingappWeb.RatingLive.Index do
 
   def list(assigns) do
     ~H"""
-    <%= # inspect @games %>
+
     <%= for {game, index} <- Enum.with_index(@games) do %>
       <%= if rating = List.first(game.ratings) do %>
         <RatingappWeb.RatingLive.Show.stars rating={rating} game={game} />
@@ -39,6 +39,7 @@ defmodule RatingappWeb.RatingLive.Index do
   end
 
   defp ratings_complete?(games) do
+    IO.inspect(games, lable: "games------------")
     Enum.all?(games, fn game ->
       length(game.ratings) == 1
     end)

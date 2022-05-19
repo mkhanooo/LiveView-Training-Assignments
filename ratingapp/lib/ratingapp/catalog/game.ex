@@ -4,7 +4,8 @@ defmodule Ratingapp.Catalog.Game do
 
   schema "games" do
     field :game_name, :string
-
+    has_many :ratings, Ratingapp.Survey.Rating
+    
     timestamps()
   end
 
